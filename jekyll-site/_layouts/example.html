@@ -1,7 +1,7 @@
 ---
 layout: page
-
 ---
+
 <div class="alert alert-block alert-info">
 {{content}}
 </div>
@@ -38,9 +38,9 @@ layout: page
 	how to connect to the system under test. Change the code and re-run the specification
 	by switching to the Result tab to see the effects.
 </span><br/>
-<textarea id="stepsArea" class="examples code">
+<div id="stepsArea" class="editor">
 {% include {{page.example | prepend: 'examples/'  |  append: '/steps.js' }} %}
-</textarea>
+</div>
 	</div>
 	 <div role="tabpanel" class="tab-pane fade" id="sut">
 <span class="tabpanel-intro">
@@ -48,9 +48,9 @@ layout: page
 	Change the code to introduce bugs and re-run the specification
 	by switching to the Result tab to see the effects.
 </span><br/>
-<textarea id="sutArea" class="examples code">
+<div id="sutArea" class="editor">
 {% include {{page.example | prepend: 'examples/'  |  append: '/under-test.js' }} %}
-</textarea>
+</div>
 	 </div>
 	 <div role="tabpanel" class="tab-pane fade" id="result">
 <span class="tabpanel-intro">
@@ -139,3 +139,11 @@ window.addEventListener('load', function () {
 	runButton.addEventListener('click', rerun);
 });
 </script>
+	<script>
+        var stepsEditor = ace.edit("stepsArea");
+        var sutEditor = ace.edit("sutArea");
+
+        var js = "ace/mode/javascript";
+        stepsEditor.getSession().setMode(js);
+        sutEditor.getSession().setMode(js);
+    </script>

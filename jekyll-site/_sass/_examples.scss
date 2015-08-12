@@ -23,3 +23,9 @@ input[format=md]:checked ~ [visible-format]:not([visible-format=md]) {
 .tab-pane {
 	padding-top: 10px;
 }
+
+.editor {
+	position: absolute;
+    width: 100%;
+    height: 400px;
+}
